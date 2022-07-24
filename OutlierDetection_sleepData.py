@@ -15,8 +15,8 @@ from sklearn.mixture import GaussianMixture
 #--- Need Plotly for plotting-------------
 import plotly.express as px
 import plotly.graph_objects as go
-
-
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 warnings.filterwarnings('ignore')
@@ -346,18 +346,6 @@ fig.show()
 makeboxplots(df, respect_to='duration')
 makeboxplots(df, respect_to='timeToSleep')
 
-#%%
-
-
-
-#%%--------------------------------Plotting
-px.scatter(df, x=df.index , y=df.duration , 
-           color=df['anomaly_IsolationForest_duration'].map(lambda x: 'Outlier' if x==1 else 'Normal'),
-           hover_data=['anomaly_IsolationForest_duration'])
-
-px.scatter(df, x=df.index , y=df.timeToSleep , 
-           color=df['anomaly_IsolationForest_timeToSleep'].map(lambda x: 'Outlier' if x==1 else 'Normal'),
-           hover_data=['anomaly_IsolationForest_timeToSleep'])
 
 
 #%%--------------------------------Plotting
@@ -447,3 +435,5 @@ px.scatter(df, x=df.index , y=df['timeToSleep_fromSteps'] ,
            color=df['anomaly_timeToSleep_fromSteps'].map(lambda x: 'Outlier' if x==1 else 'Normal'),
            hover_data=['anomaly_timeToSleep_fromSteps'])
 
+
+# %%
